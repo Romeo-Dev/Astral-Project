@@ -45,3 +45,17 @@ div.divider{
 li.active{
     background-image: linear-gradient(to right, #DD5E89 0%, #F7BB97 51%, #DD5E89 100%);
 }
+
+.panel{
+    background-color: white;
+    padding: 2em;
+    border-radius: 1.2em;
+}
+
+.active{
+    color: #F7BB97;
+    border-bottom: #FFF 4px solid;
+    padding-bottom: 0.5em;
+    border-radius: 1.2em;
+
+}
