@@ -23,9 +23,22 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/css/fontawesome-all.min.css",
+              "src/assets/css/main.css",
+              "src/assets/css/noscript.css",
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/custom.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/jquery.min.js",
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/fontawesome-all.min.js",
+              "src/assets/js/browser.min.js",
+              "src/assets/js/breakpoints.min.js",
+              "src/assets/js/util.js",
+              "src/assets/js/main.js"
+            ]
           },
           "configurations": {
             "production": {
