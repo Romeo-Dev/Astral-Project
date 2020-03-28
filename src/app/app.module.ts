@@ -11,6 +11,7 @@ import { PageContactComponent } from './page-contact/page-contact.component';
 import { PageSkillComponent } from './page-skill/page-skill.component';
 import { PageDummyComponent } from './page-dummy/page-dummy.component';
 import { DetailWorkComponent } from './detail-work/detail-work.component';
+import { DetailProfileComponent } from './detail-profile/detail-profile.component';
 
 const appRoutes: Routes = [
   { path: '', component: PageHomeComponent },
@@ -32,7 +33,8 @@ const appRoutes: Routes = [
     PageContactComponent,
     PageSkillComponent,
     PageDummyComponent,
-    DetailWorkComponent
+    DetailWorkComponent,
+    DetailProfileComponent
   ],
   imports: [
     BrowserModule,
