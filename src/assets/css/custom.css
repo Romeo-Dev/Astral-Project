@@ -32,16 +32,22 @@ hr.divider{
 
 .text-gradient{
     color: #F7BB97;
-    font-size: 1.6em;
 }
+
 
 div.divider{
     background-image: linear-gradient(to right, #DD5E89 0%, #F7BB97 51%, #DD5E89 100%);
     border-radius: 20px;
 }
 
-li.active{
+li.active:hover{
     background-image: linear-gradient(to right, #DD5E89 0%, #F7BB97 51%, #DD5E89 100%);
+    cursor: pointer;
+}
+.list-group-item.active{
+    color: black;
+    background-color: #FFF;
+    border-color: #FFF;
 }
 
 .panel{

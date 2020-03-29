@@ -1,7 +1,7 @@
 <!-- Work -->
 <article id="work" class="panel">
     <header>
-        <h2>Works & Projects</h2>
+        <h2>Tecnologies, Works & Projects</h2>
     </header>
     <p>
         Phasellus enim sapien, blandit ullamcorper elementum eu, condimentum eu elit.
@@ -9,89 +9,14 @@
         luctus elit eget interdum.
     </p>
     <hr class="divider">
-    <section class="container-fluid">
-        <div class="row">
-            <div class="col text-center">
-                <h2 class="text-secondary">Tecnologies</h2>
-            </div>
-        </div>
-        <div class="row mt-lg-3">
-            <div class="card-group">
-                <div class="col-sm-4">
-                    <div class="card">
-                        <img src="assets/images/angular-icon-1.svg" class="card-img-top" alt="tec">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">Angular Ionic</h5>
-                        </div>
+    
+    <!-- Select tec component-->
+    <app-select-tec *ngIf="show" (onSelectTec)= "selectProject($event)"></app-select-tec>
+    <!-- Select tec component-->
 
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="card">
-                        <img src="assets/images/angular-icon-1.svg" class="card-img-top" alt="tecnologies 2">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">Angular Ionic</h5>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="card">
-                        <img src="assets/images/angular-icon-1.svg" class="card-img-top"
-                            alt="assets/css/images/type-grid.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">Angular Ionic</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 mt-sm-3">
-                    <div class="card">
-                        <img src="assets/css/images/Laravel.png" class="card-img-top"
-                            alt="assets/css/images/type-grid.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">Angular Ionic</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 mt-sm-3">
-                    <div class="card">
-                        <img src="assets/css/images/Laravel.png" class="card-img-top"
-                            alt="assets/css/images/type-grid.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">Angular Ionic</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 mt-sm-3">
-                    <div class="card">
-                        <img src="assets/css/images/Laravel.png" class="card-img-top"
-                            alt="assets/css/images/type-grid.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">Angular Ionic</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <hr class="divider">
-    <section class="container-fluid">
-        <div class="row">
-            <div class="col text-center">
-                <h2 class="text-secondary">Select Laravel Project</h2>
-            </div>
-        </div>
-        <div class="row mt-lg-3">
-            <div class="col-sm-12">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><i class="fab fa-laravel mr-lg-3"></i>Cras justo odio</li>
-                    <li class="list-group-item"><i class="fab fa-laravel mr-lg-3"></i>Dapibus ac facilisis in</li>
-                    <li class="list-group-item"><i class="fab fa-laravel mr-lg-3"></i>Morbi leo risus</li>
-                    <li class="list-group-item"><i class="fab fa-laravel mr-lg-3"></i>Porta ac consectetur ac</li>
-                    <li class="list-group-item active"><i class="fab fa-laravel mr-lg-3"></i>Vestibulum at eros</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+    <!-- Select Project component-->
+    <app-select-project *ngIf="!show" [select-pj]='workIn' (onBack)="showDetail()" ></app-select-project>
+    <!-- Select Project component-->
+    
 </article>
 <!--End  Work -->

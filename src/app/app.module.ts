@@ -12,6 +12,8 @@ import { PageSkillComponent } from './page-skill/page-skill.component';
 import { PageDummyComponent } from './page-dummy/page-dummy.component';
 import { DetailWorkComponent } from './detail-work/detail-work.component';
 import { DetailProfileComponent } from './detail-profile/detail-profile.component';
+import { SelectTecComponent } from './select-tec/select-tec.component';
+import { SelectProjectComponent } from './select-project/select-project.component';
 
 const appRoutes: Routes = [
   { path: '', component: PageHomeComponent },
@@ -34,7 +36,9 @@ const appRoutes: Routes = [
     PageSkillComponent,
     PageDummyComponent,
     DetailWorkComponent,
-    DetailProfileComponent
+    DetailProfileComponent,
+    SelectTecComponent,
+    SelectProjectComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Tec } from '../Models/tec';
 
 @Component({
   selector: 'app-page-work',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageWorkComponent implements OnInit {
 
+  show = true;
+  workIn: Tec;
   constructor() { }
 
   ngOnInit() {
   }
 
+  showDetail() {
+    if (this.show) {
+      this.show = false;
+    } else {
+      this.show = true;
+    }
+  }
+
+  selectProject(tec: Tec) {
+    this.workIn = tec;
+    this.showDetail();
+  }
 }
