@@ -41,7 +41,7 @@ export class ProfileService {
       // tslint:disable-next-line: max-line-length
       descrizione: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur',
       img: 'assets/images/profile03.jpg',
-      email: 'sandra.riverwood@email.com',
+      email: 'loren.gondor@email.com',
       indirizzo: 'Via Cancello nero 15',
       tel: '348 4554 636',
       professione: 'Angular developer & Back-End developer',

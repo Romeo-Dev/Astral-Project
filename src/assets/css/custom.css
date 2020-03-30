@@ -78,3 +78,18 @@ li.active:hover{
     background-color: #F7BB97;
     color: #FFF;
 }
+
+.skill-icon{
+    width: 3em;
+    height: 3em;
+    color: #F7BB97;
+}
+
+.btn-services{
+    cursor: pointer;
+}
+
+.btn-services:hover{
+    font-size: 1.3em;
+    border-bottom: #F7BB97 4px solid;
+}
