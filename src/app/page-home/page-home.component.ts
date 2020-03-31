@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Profile } from '../Models/profile';
 import { ProfileService } from '../Services/profile.service';
 
+
 @Component({
   selector: 'app-page-home',
   templateUrl: './page-home.component.html',
@@ -12,7 +13,7 @@ export class PageHomeComponent implements OnInit {
   show = false;
   profile: Profile;
 
-  constructor(private profileService: ProfileService) { }
+  constructor(private svprofile: ProfileService) { }
 
   ngOnInit() {
     this.profile = this.showProfile(3);
@@ -27,7 +28,7 @@ export class PageHomeComponent implements OnInit {
   }
 
   showProfile(id: number): Profile{
-    return this.profileService.selectProfile(id);
+    return this.svprofile.selectProfile(id);
   }
 
 }

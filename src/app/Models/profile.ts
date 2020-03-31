@@ -1,3 +1,5 @@
+import { Ability } from './ability';
+
 export class Profile {
     id: number;
     nome: string;

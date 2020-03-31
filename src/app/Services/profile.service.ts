@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Profile } from '../Models/profile';
+import { AbilityService } from './ability.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class ProfileService {
       indirizzo: 'Via decorati 12',
       tel: '349 6920 681',
       professione: 'Software Developer & Web Developer',
-      git: 'https://github.com/Romeo-Dev'
+      git: 'https://github.com/Romeo-Dev',
     },
     {
       id: 2,
