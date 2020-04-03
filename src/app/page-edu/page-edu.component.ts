@@ -1,4 +1,8 @@
+import { EduService } from './../Services/edu.service';
+import { ProfileService } from './../Services/profile.service';
+import { Edu } from './../Models/edu';
 import { Component, OnInit } from '@angular/core';
+import { Profile } from '../Models/profile';
 
 @Component({
   selector: 'app-page-edu',
@@ -7,9 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageEduComponent implements OnInit {
 
-  constructor() { }
+  profile: Profile;
+  edus: Edu[];
+
+  constructor(private serviceProfile: ProfileService, private serviceEdu: EduService) { }
 
   ngOnInit() {
+    this.profile = this.serviceProfile.selectProfile(3);
+    this.edus = this.serviceEdu.getEdu(this.profile);
   }
 
 }

@@ -15,6 +15,7 @@ import { DetailProfileComponent } from './detail-profile/detail-profile.componen
 import { SelectTecComponent } from './select-tec/select-tec.component';
 import { SelectProjectComponent } from './select-project/select-project.component';
 import { PageEduComponent } from './page-edu/page-edu.component';
+import { PageExpComponent } from './page-exp/page-exp.component';
 
 const appRoutes: Routes = [
   { path: '', component: PageHomeComponent },
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
   { path: 'works/:id', component: DetailWorkComponent },
   { path: 'dummy', component: PageDummyComponent },
   { path: 'edu', component: PageEduComponent },
+  { path: 'exp', component: PageExpComponent },
   { path: '', redirectTo: '', pathMatch: 'full' },
 ];
 
@@ -41,7 +43,8 @@ const appRoutes: Routes = [
     DetailProfileComponent,
     SelectTecComponent,
     SelectProjectComponent,
-    PageEduComponent
+    PageEduComponent,
+    PageExpComponent
   ],
   imports: [
     BrowserModule,

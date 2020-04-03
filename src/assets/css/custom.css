@@ -34,6 +34,10 @@ hr.divider{
     color: #E5AE9E;
 }
 
+.bg-gradient{
+    background-color: #E5AE9E;
+}
+
 
 div.divider{
     background-image: linear-gradient(to bottom, #E5AE9E 50%, #A46F7D);
@@ -95,7 +99,7 @@ li.active:hover{
     border-bottom: #E5AE9E 4px solid;
 }
 
-li.edu{
+.edu{
     background-color: transparent;
     color: #A46F7D;
 }
