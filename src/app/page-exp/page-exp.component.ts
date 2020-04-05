@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ExpService } from '../Services/exp.service';
+import { Profile } from '../Models/profile';
+import { Exp } from '../Models/exp';
+import { ProfileService } from '../Services/profile.service';
 
 @Component({
   selector: 'app-page-exp',
@@ -7,9 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageExpComponent implements OnInit {
 
-  constructor() { }
+  profile: Profile;
+  exp: Exp[];
+  constructor(private serviceExp: ExpService, private serviceProfile: ProfileService) { }
 
   ngOnInit() {
+    this.profile = this.serviceProfile.selectProfile(3);
+    this.exp = this.serviceExp.getExp(this.profile);
   }
 
 }
