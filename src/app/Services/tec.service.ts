@@ -12,37 +12,37 @@ export class TecService {
       id: 1,
       nome: 'Angular',
       type: 'Framework',
-      logo: 'assets/images/logo/angular-icon-1.svg',
+      logo: 'fab fa-angular',
     },
     {
       id: 2,
       nome: 'Laravel',
       type: 'Framework',
-      logo: 'assets/images/logo/Laravel.png',
+      logo: 'fab fa-laravel',
     },
     {
       id: 3,
       nome: 'Java Spring-Boot',
       type: 'Framework',
-      logo: 'assets/images/logo/spring-3.svg',
+      logo: 'fab fa-java',
     },
     {
       id: 4,
       nome: 'GraphQl',
       type: 'Framework',
-      logo: 'assets/images/logo/graphql.png',
+      logo: 'fab fa-js-square',
     },
     {
       id: 5,
       nome: 'Electron',
       type: 'Framework',
-      logo: 'assets/images/logo/electron.png',
+      logo: 'fas fa-atom',
     },
     {
       id: 6,
       nome: 'Flutter',
       type: 'Framework UI',
-      logo: 'assets/images/logo/flutter-logo.svg',
+      logo: 'fab fa-chrome',
     }
   ];
 

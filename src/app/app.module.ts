@@ -16,6 +16,7 @@ import { SelectTecComponent } from './select-tec/select-tec.component';
 import { SelectProjectComponent } from './select-project/select-project.component';
 import { PageEduComponent } from './page-edu/page-edu.component';
 import { PageExpComponent } from './page-exp/page-exp.component';
+import { ModalLoginComponent } from './modal-login/modal-login.component';
 
 const appRoutes: Routes = [
   { path: '', component: PageHomeComponent },
@@ -44,7 +45,8 @@ const appRoutes: Routes = [
     SelectTecComponent,
     SelectProjectComponent,
     PageEduComponent,
-    PageExpComponent
+    PageExpComponent,
+    ModalLoginComponent
   ],
   imports: [
     BrowserModule,

@@ -1,70 +1,85 @@
-
-<!-- Skill & Exp -->
-<div id="skill" class="panel">
+    <!-- Skill & Exp -->
+    <div id="skill" class="panel">
     <div class="row">
         <div class="col-sm-12">
-            <h1>Skill & Ability</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae consequuntur quaerat nulla voluptas,
-                reiciendis repellendus quod dolores sint nostrum omnis illum repellat iusto obcaecati quia cum eligendi
-                corrupti odio quae</p>
+        <h1>Skill & Ability</h1>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae
+            consequuntur quaerat nulla voluptas, reiciendis repellendus quod dolores
+            sint nostrum omnis illum repellat iusto obcaecati quia cum eligendi
+            corrupti odio quae
+        </p>
         </div>
     </div>
-    <hr class="divider">
+    <hr class="divider" />
     <div class="row mt-sm-3">
         <div class="col">
-            <h2 class="text-center text-secondary">Skills Overview</h2>
+        <h2 class="text-center text-secondary">Skills Overview</h2>
         </div>
     </div>
     <div class="row row-cols-1 row-cols-md-2 mt-lg-4">
         <div class="col mb-4" *ngFor="let ability of abilities">
-            <div class="card">
-                <div class="card-header">
-                    <div class="row">
-                        <div class="col text-center text-primary">
-                            <i class="{{ability.icon}} skill-icon" style="width: 3em;"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title text-center text-secondary">{{ability.name}}</h5>
-                    <hr class="border border-info p-0">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item" *ngFor="let skill of ability.skills">{{skill.title}} <span class="float-right"><i
-                                    class="{{skill.progress}} text-success"></i></span></li>
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <div class="row">
-                        <div class="col-sm text-center text-gradient btn-services">
-                            <i class="fab fa-skype" style="font-size: 1.2em;"></i>
-                        </div>
-                        <div class="col-sm text-center text-gradient btn-services">
-                            <i class="fab fa-github" style="font-size: 1.2em;"></i>
-                        </div>
-                        <div class="col-sm text-center text-gradient btn-services">
-                            <i class="fab fa-instagram" style="font-size: 1.2em;"></i>
-                        </div>
-                        <div class="col-sm text-center text-gradient btn-services">
-                            <i class="fab fa-facebook" style="font-size: 1.2em;"></i>
-                        </div>
-                    </div>
+        <div class="card">
+            <div class="card-header">
+            <div class="row">
+                <div class="col text-center text-primary">
+                <i class="{{ ability.icon }} skill-icon" style="width: 3em;"></i>
                 </div>
             </div>
+            </div>
+            <div class="card-body">
+            <h5 class="card-title text-center text-secondary">
+                {{ ability.name }}
+            </h5>
+            <hr class="border border-info p-0" />
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" *ngFor="let skill of ability.skills">
+                {{ skill.title }}
+                <span class="float-right"
+                    ><i class="{{ skill.progress }} text-success"></i
+                ></span>
+                </li>
+            </ul>
+            </div>
+            <div class="card-footer">
+            <div class="row">
+                <div class="col text-center text-gradient btn-services">
+                <i class="fab fa-skype" style="font-size: 1.2em;"></i>
+                </div>
+                <div class="col text-center text-gradient btn-services">
+                <i class="fab fa-github" style="font-size: 1.2em;"></i>
+                </div>
+                <div class="col text-center text-gradient btn-services">
+                <i class="fab fa-instagram" style="font-size: 1.2em;"></i>
+                </div>
+                <div class="col text-center text-gradient btn-services">
+                <i class="fab fa-facebook" style="font-size: 1.2em;"></i>
+                </div>
+            </div>
+            </div>
+        </div>
         </div>
     </div>
-    <hr class="divider">
+    <hr class="divider" />
     <div class="row mt-sm-3">
         <div class="col">
-            <h2 class="text-center text-secondary">Ability</h2>
+        <h2 class="text-center text-secondary">Ability</h2>
         </div>
     </div>
     <ul class="list-group list-group-flush mt-lg-4">
-        <li class="list-group-item" *ngFor="let ability of abilities"> {{ability.name}}
-            <div class="progress">
-                <div class="progress-bar progress-bar-striped bg-gradient" role="progressbar" [ngStyle]="{'width': ability.skills.length * 10 + '%'}" aria-valuenow="10"
-                    aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
+        <li class="list-group-item" *ngFor="let ability of abilities">
+        {{ ability.name }}
+        <div class="progress">
+            <div
+            class="progress-bar progress-bar-striped bg-gradient"
+            role="progressbar"
+            [ngStyle]="{ width: ability.skills.length * 10 + '%' }"
+            aria-valuenow="10"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            ></div>
+        </div>
         </li>
     </ul>
-</div>
-<!-- Skill & Exp -->
+    </div>
+    <!-- Skill & Exp -->

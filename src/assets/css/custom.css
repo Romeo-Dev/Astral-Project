@@ -38,6 +38,27 @@ hr.divider{
     background-color: #E5AE9E;
 }
 
+.bg-inverse{
+    background-color: #5F7D95;
+    color: #FFF;
+}
+
+button.bg-inverse:hover{
+    background-color: #FFF;
+    border-color: #5F7D95;
+    color: #5F7D95;
+}
+
+button.bg-gradient{
+    color: #FFF;
+}
+
+button.bg-gradient:hover{
+    background-color: #FFF;
+    border-color: #E5AE9E;
+    color: #E5AE9E;
+}
+
 
 div.divider{
     background-image: linear-gradient(to bottom, #E5AE9E 50%, #A46F7D);
@@ -47,9 +68,10 @@ div.divider{
 li.active:hover{
     background-image: linear-gradient(to bottom, #E5AE9E 50%, #A46F7D);
     cursor: pointer;
+    color: #FFF;
 }
 .list-group-item.active{
-    color: black;
+    color: #5F7D95;
     background-color: #FFF;
     border-color: #FFF;
 }
@@ -102,4 +124,10 @@ li.active:hover{
 .edu{
     background-color: transparent;
     color: #A46F7D;
+}
+
+.center-card {
+        margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
 }

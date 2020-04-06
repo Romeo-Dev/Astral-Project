@@ -4,17 +4,24 @@
             <h2 class="text-secondary">Featured Tecnologies</h2>
         </div>
     </div>
-    <div class="row">
-        <div class="card-group">
+    <div class="row mt-lg-3">
+        <div class="col-sm-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item active" *ngFor="let tec of ptec" (click)="selectedTec(tec)"><i class="{{tec.logo}} mr-sm-3"></i>{{tec.nome}} <span
+                        class="badge bg-inverse ml-sm-3 badge-pill">14</span></li>
+                
+            </ul>
+        </div>
+        
+        <!-- <div class="card-group">
             <div class="col-sm-4 mt-lg-5" *ngFor="let tec of ptec">
                 <div class="card btn" (click)="selectedTec(tec)">
                     <img src="{{tec.logo}}" class="card-img-top" alt="tec">
                     <div class="card-body">
                         <h5 class="card-title text-center">{{tec.nome}} <small style="color: #F7BB97;">{{tec.type}}</small></h5>
                     </div>
-
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>
