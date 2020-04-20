@@ -4,7 +4,7 @@ export class Profile {
     id: number;
     nome: string;
     cognome: string;
-    descrizione: string;
+    biography: string;
     img: string;
     email: string;
     indirizzo: string;

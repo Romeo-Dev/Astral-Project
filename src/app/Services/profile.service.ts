@@ -1,13 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Profile } from '../Models/profile';
-import { AbilityService } from './ability.service';
+import { HttpClient } from '@angular/common/http';
+
+import { Observable, throwError } from 'rxjs';
+import {  HttpErrorResponse } from '@angular/common/http';
+import { catchError, tap, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
 
-  constructor() { }
+  url = 'http://127.0.0.1:8000/api/profiles/';
+
+  constructor(private http: HttpClient) { }
 
   profiles: Profile[] = [
     {
@@ -15,7 +21,7 @@ export class ProfileService {
       nome: 'Romeo',
       cognome: 'De Vincentis',
       // tslint:disable-next-line: max-line-length
-      descrizione: 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+      biography: 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
       img: 'assets/images/profile01.jpg',
       email: 'romeo.dv@email.com',
       indirizzo: 'Via decorati 12',
@@ -28,7 +34,7 @@ export class ProfileService {
       nome: 'Sandra',
       cognome: 'Riverwood',
       // tslint:disable-next-line: max-line-length
-      descrizione: 'led it to make a type specimen book.It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+      biography: 'led it to make a type specimen book.It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
       img: 'assets/images/profile02.jpg',
       email: 'sandra.riverwood@email.com',
       indirizzo: 'Via Riften 12',
@@ -40,7 +46,7 @@ export class ProfileService {
       nome: 'Loren',
       cognome: 'Gondor',
       // tslint:disable-next-line: max-line-length
-      descrizione: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur',
+      biography: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur',
       img: 'assets/images/profile03.jpg',
       email: 'loren.gondor@email.com',
       indirizzo: 'Via Cancello nero 15',
@@ -53,5 +59,29 @@ export class ProfileService {
     let person: Profile;
     person = this.profiles.find(p => p.id === id);
     return person;
+  }
+
+  /**
+   * Dialog with service 
+   */
+  loadProfile(id: number): Observable<Profile>{
+    return this.http.get<Profile>(this.url + id).pipe(
+      tap(data => console.log( JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
+  private handleError(err: HttpErrorResponse) {
+
+    let errorMessage = '';
+    if (err.error instanceof ErrorEvent) {
+
+      errorMessage = `An error occurred: ${err.error.message}`;
+    } else {
+
+      errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
+    }
+    console.error(errorMessage);
+    return throwError(errorMessage);
   }
 }

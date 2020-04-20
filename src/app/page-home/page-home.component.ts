@@ -16,7 +16,9 @@ export class PageHomeComponent implements OnInit {
   constructor(private svprofile: ProfileService) { }
 
   ngOnInit() {
-    this.profile = this.showProfile(3);
+    //this.profile = this.showProfile(3);
+    this.profile = new Profile();
+    this.load(5);
   }
 
   showDetail() {
@@ -29,6 +31,15 @@ export class PageHomeComponent implements OnInit {
 
   showProfile(id: number): Profile{
     return this.svprofile.selectProfile(id);
+  }
+
+  /**
+   * Dialog with service
+   */
+  load(id: number){
+    this.svprofile.loadProfile(id).subscribe(resp => {
+      this.profile = resp['data'];
+    });
   }
 
 }
