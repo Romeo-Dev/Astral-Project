@@ -16,6 +16,7 @@ export class PageEduComponent implements OnInit {
   constructor(private serviceProfile: ProfileService) { }
 
   ngOnInit() {
+    this.profile = new Profile();
     this.loadEdu();
   }
 

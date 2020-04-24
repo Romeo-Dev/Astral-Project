@@ -15,6 +15,7 @@ export class DetailWorkComponent implements OnInit {
   constructor(private svproject: ProjectService,  private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.project = new Project();
     this.route.params.subscribe(
       (params) => {
         // Cast doveroso con la + davanti il parametro se no per default prende stringa

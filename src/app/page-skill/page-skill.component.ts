@@ -16,6 +16,7 @@ export class PageSkillComponent implements OnInit {
   constructor(private svprofile: ProfileService) { }
 
   ngOnInit() {
+    this.profile = new Profile();
     this.loadSkills(2);
   }
 

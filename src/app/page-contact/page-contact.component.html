@@ -5,17 +5,28 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit tenetur consequatur maiores ea pariatur aliquam vitae facere itaque laboriosam impedit totam doloribus, tempora architecto, debitis unde, corrupti possimus voluptas et?</p>
     </header>
     <hr class="divider">
-    <form action="#" method="post">
+    <form action="#" method="post" [formGroup]="messageForm">
         <div>
             <div class="row">
                 <div class="col-6 col-12-medium">
-                    <input type="text" name="name" placeholder="Your name..." />
+                    <input type="text"  formControlName="name" id="name" placeholder="Your name..."/>
+                    <div class="alert alert-danger" role="alert" *ngIf="this.messageForm.get('name').touched && this.messageForm.get('name').hasError('required')">
+                        <i class="fas fa-exclamation-circle text-danger"></i> <small class="ml-2">Nome è un campo obbligatorio, prego inserirlo correttamente.</small>
+                    </div>
                 </div>
                 <div class="col-6 col-12-medium">
-                    <input type="text" name="lname" placeholder="Your Last name..." />
+                    <input type="text" name="lname" formControlName="last_name" placeholder="Your Last name..." />
+                    <div class="alert alert-danger" role="alert"  *ngIf="this.messageForm.get('last_name').touched && this.messageForm.get('last_name').hasError('required')">
+                        <i class="fas fa-exclamation-circle text-danger"></i> <small class="ml-2">Cognome è un campo obbligatorio, prego
+                            inserirlo correttamente.</small>
+                    </div>
                 </div>
                 <div class="col-12">
-                    <input type="email" name="email" placeholder="Your E-mail..." />
+                    <input type="email" name="email" formControlName="email" placeholder="Your E-mail..." />
+                    <div class="alert alert-danger" role="alert" *ngIf="this.messageForm.get('email').touched && (this.messageForm.get('email').hasError('required') || this.messageForm.get('email').hasError('email'))">
+                        <i class="fas fa-exclamation-circle text-danger"></i> <small class="ml-2">E-mail sbagliata o non inserita, è un campo obbligatorio, prego
+                            inserirlo correttamente.</small>
+                    </div>
                 </div>
                 <div class="col-2 col-6-small">
                     <div class="input-group-prepend">
@@ -23,19 +34,29 @@
                     </div>
                 </div>
                 <div class="col-10 col-6-small">
-                    <select class="custom-select" id="inputGroupSelect01">
-                        <option selected>Choose...</option>
+                    <select class="custom-select" id="inputGroupSelect01" formControlName="profile_id">
                         <option *ngFor="let p of profiles" value="{{p.id}}">{{p.nome}} {{p.cognome}}</option>
                     </select>
+                    <div class="alert alert-danger" role="alert" *ngIf="this.messageForm.get('profile_id').touched && this.messageForm.get('profile_id').hasError('required')">
+                        <i class="fas fa-exclamation-circle text-danger"></i> <small class="ml-2">Selezionare un Profilo prima di continuare</small>
+                    </div>
                 </div>
                 <div class="col-12">
-                    <input type="text" name="subject" placeholder="Oggetto" />
+                    <input type="text" name="subject" formControlName="subject" placeholder="Oggetto" />
+                    <div class="alert alert-danger" role="alert" *ngIf="this.messageForm.get('subject').touched && (this.messageForm.get('subject').hasError('required') || this.messageForm.get('subject').hasError('maxlength'))">
+                        <i class="fas fa-exclamation-circle text-danger"></i> <small class="ml-2">Oggetto è un campo obbligatorio, prego
+                            inserirlo correttamente. Min 10 char | Max 50 char</small>
+                    </div>
                 </div>
                 <div class="col-12">
-                    <textarea name="message" placeholder="Message" rows="6"></textarea>
+                    <textarea name="message" formControlName="content" placeholder="Message" rows="6"></textarea>
+                    <div class="alert alert-danger" role="alert" *ngIf="this.messageForm.get('content').touched && (this.messageForm.get('content').hasError('required') || messageForm.controls.content.hasError('minlength') || messageForm.controls.content.hasError('maxlength'))">
+                        <i class="fas fa-exclamation-circle text-danger"></i> <small class="ml-2">Conuto è un campo obbligatorio, prego
+                            inserirlo correttamente. Min 50 char | Max 500 char</small>
+                    </div>
                 </div>
                 <div class="col-12">
-                    <button type="button" class="btn bg-gradient btn-lg btn-block">Invia</button>
+                    <button type="submit" (click)="onSubmit()"  [disabled]="!messageForm.valid" class="btn bg-gradient btn-lg btn-block">Invia</button>
                 </div>
             </div>
         </div>
