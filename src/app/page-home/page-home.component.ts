@@ -37,8 +37,8 @@ export class PageHomeComponent implements OnInit {
    * Dialog with service
    */
   load(id: number){
-    this.svprofile.loadProfile(id).subscribe(resp => {
-      this.profile = resp['data'];
+    this.svprofile.loadProfile(id).subscribe((res: Profile) => {
+      this.profile = res['data'];
     });
   }
 

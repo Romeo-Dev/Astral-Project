@@ -5,6 +5,7 @@ import { Tec } from '../Models/tec';
 import { Profile } from '../Models/profile';
 import { Project } from '../Models/project';
 import { Router } from '@angular/router';
+import { FeauturedTec } from '../Models/feautured-tec';
 
 @Component({
   selector: 'app-select-project',
@@ -13,16 +14,15 @@ import { Router } from '@angular/router';
 })
 export class SelectProjectComponent implements OnInit {
 
-  @Input('select-pj') tech: Tec;
+  @Input('select-pj') tech: FeauturedTec;
   @Output('onBack') back = new EventEmitter();
   profile: Profile;
-  projects: Project[];
+  projects: Project[] = [];
 
   constructor(private svprofile: ProfileService, private svproject: ProjectService, private route: Router) { }
 
   ngOnInit() {
-    this.profile = this.svprofile.selectProfile(3);
-    this.projects = this.svproject.getProjects(this.profile, this.tech);
+    this.loadData();
   }
   
   goBack() {
@@ -31,5 +31,12 @@ export class SelectProjectComponent implements OnInit {
 
   goToProject(id: number) {
     this.route.navigate(['works', id]);
+  }
+
+  loadData(id: number = 5){
+    this.svprofile.projectList(id, this.tech.id)
+        .subscribe(res => {
+          this.projects = res['data'];
+        });
   }
 }

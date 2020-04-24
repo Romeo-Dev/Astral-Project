@@ -5,7 +5,7 @@ export class Ability {
     id: number;
     name: string;
     icon: string;
-    percent: number;
-    profile: Profile;
+    percent?: number;
+    profile?: Profile;
     skills?: Skill[];
 }

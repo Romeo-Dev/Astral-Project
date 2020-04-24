@@ -12,13 +12,17 @@ import { Profile } from '../Models/profile';
 export class PageEduComponent implements OnInit {
 
   profile: Profile;
-  edus: Edu[];
 
-  constructor(private serviceProfile: ProfileService, private serviceEdu: EduService) { }
+  constructor(private serviceProfile: ProfileService) { }
 
   ngOnInit() {
-    this.profile = this.serviceProfile.selectProfile(3);
-    this.edus = this.serviceEdu.getEdu(this.profile);
+    this.loadEdu();
+  }
+
+  loadEdu(id: number = 5){
+    this.serviceProfile.retriveMyEdu(id).subscribe(
+      res => this.profile = res['data']
+    );
   }
 
 }

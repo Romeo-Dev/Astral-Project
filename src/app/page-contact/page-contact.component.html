@@ -9,13 +9,24 @@
         <div>
             <div class="row">
                 <div class="col-6 col-12-medium">
-                    <input type="text" name="name" placeholder="Name" />
+                    <input type="text" name="name" placeholder="Your name..." />
                 </div>
                 <div class="col-6 col-12-medium">
-                    <input type="text" name="lname" placeholder="Last name" />
+                    <input type="text" name="lname" placeholder="Your Last name..." />
                 </div>
                 <div class="col-12">
-                    <input type="email" name="email" placeholder="E-mail" />
+                    <input type="email" name="email" placeholder="Your E-mail..." />
+                </div>
+                <div class="col-2 col-6-small">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text text-inverse" for="inputGroupSelect01">Select Profile</label>
+                    </div>
+                </div>
+                <div class="col-10 col-6-small">
+                    <select class="custom-select" id="inputGroupSelect01">
+                        <option selected>Choose...</option>
+                        <option *ngFor="let p of profiles" value="{{p.id}}">{{p.nome}} {{p.cognome}}</option>
+                    </select>
                 </div>
                 <div class="col-12">
                     <input type="text" name="subject" placeholder="Oggetto" />

@@ -7,6 +7,6 @@ export class Edu {
 	descrizione: string;
 	luogo: string;
 	graduation: Date;
-	arguments: Argo[];
-	profile: Profile;
+	args: Argo[];
+	profile?: Profile;
 }

@@ -1,3 +1,4 @@
+import { FeauturedTec } from './../Models/feautured-tec';
 import { Component, OnInit } from '@angular/core';
 import { Tec } from '../Models/tec';
 
@@ -9,7 +10,7 @@ import { Tec } from '../Models/tec';
 export class PageWorkComponent implements OnInit {
 
   show = true;
-  workIn: Tec;
+  workIn: FeauturedTec;
   constructor() { }
 
   ngOnInit() {
@@ -23,7 +24,7 @@ export class PageWorkComponent implements OnInit {
     }
   }
 
-  selectProject(tec: Tec) {
+  selectProject(tec: FeauturedTec) {
     this.workIn = tec;
     this.showDetail();
   }

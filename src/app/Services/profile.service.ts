@@ -4,7 +4,8 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
 import {  HttpErrorResponse } from '@angular/common/http';
-import { catchError, tap, map } from 'rxjs/operators';
+import { catchError, tap, map, mapTo } from 'rxjs/operators';
+import { Project } from '../Models/project';
 
 @Injectable({
   providedIn: 'root'
@@ -65,23 +66,26 @@ export class ProfileService {
    * Dialog with service 
    */
   loadProfile(id: number): Observable<Profile>{
-    return this.http.get<Profile>(this.url + id).pipe(
-      tap(data => console.log( JSON.stringify(data))),
-      catchError(this.handleError)
-    );
+    return this.http.get<Profile>(this.url + id);
   }
 
-  private handleError(err: HttpErrorResponse) {
+  projectList(id: number, tid: number): Observable<Project[]>{
+    return this.http.get<Project[]>(this.url + id + '/tecnologies/' + tid + '/projects');
+  }
 
-    let errorMessage = '';
-    if (err.error instanceof ErrorEvent) {
+  showMyAbilities(id: number): Observable<Profile>{
+    return this.http.get<Profile>(this.url + id + '/abilities');
+  }
 
-      errorMessage = `An error occurred: ${err.error.message}`;
-    } else {
+  retriveMyEdu(id: number): Observable<Profile>{
+    return this.http.get<Profile>(this.url + id + '/educations');
+  }
 
-      errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
-    }
-    console.error(errorMessage);
-    return throwError(errorMessage);
+  retriveMyExp(id: number): Observable<Profile>{
+    return this.http.get<Profile>(this.url + id + '/experiences');
+  }
+
+  getAllProfiles(): Observable<Profile[]> {
+    return this.http.get<Profile[]>(this.url);
   }
 }

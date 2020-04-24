@@ -1,3 +1,5 @@
+import { ProfileService } from './../Services/profile.service';
+import { Profile } from './../Models/profile';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageContactComponent implements OnInit {
 
-  constructor() { }
+  profiles: Profile[] = [];
+
+  /* messageForm = this.fb.group({
+    name: [''],
+    last_name: [''],
+    email: [''],
+    subject: [''],
+    content: [''],
+    profile_id: [''],
+  }); */
+
+  constructor(private serviceProfile: ProfileService) { }
 
   ngOnInit() {
+    this.loadProfiles();
+  }
+
+  loadProfiles() {
+    this.serviceProfile.getAllProfiles().subscribe(
+      res => this.profiles = res['data']
+    );
   }
 
 }

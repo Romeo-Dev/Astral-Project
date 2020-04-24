@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Tec } from '../Models/tec';
 import { ProfileService } from './profile.service';
+import { HttpClient } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { FeauturedTec } from '../Models/feautured-tec';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TecService {
+
+  url = 'http://127.0.0.1:8000/api/profiles/';
 
   techs: Tec[] = [
     {
@@ -46,7 +51,7 @@ export class TecService {
     }
   ];
 
-  constructor(private svdev: ProfileService) { }
+  constructor(private svdev: ProfileService, private http: HttpClient) { }
 
   getTechById(pid: number): Tec[] {
     return this.techs;
@@ -56,5 +61,9 @@ export class TecService {
     let tec: Tec;
     tec = this.techs.find(t => t.id === id);
     return tec;
+  }
+
+  getMyTecnologies(id: number): Observable<FeauturedTec[]>{
+    return this.http.get<FeauturedTec[]>(this.url + id + '/tecnologies');
   }
 }

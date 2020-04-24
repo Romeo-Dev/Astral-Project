@@ -8,6 +8,6 @@ export class Exp {
     descrizione: string;
     start: Date;
     end: Date;
-    profile: Profile;
-    mansioni: Mansion[];
+    profile?: Profile;
+    mansions: Mansion[];
 }

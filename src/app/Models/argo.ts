@@ -1,5 +1,5 @@
 export class Argo {
     id: number;
 	tag: string;
-	short_desc: string;
+	sh_descr: string;
 }

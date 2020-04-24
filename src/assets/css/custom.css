@@ -30,6 +30,10 @@ hr.divider{
     border-radius: 20px;
 }
 
+.text-inverse{
+    color: #5F7D95;
+}
+
 .text-gradient{
     color: #E5AE9E;
 }

@@ -1,6 +1,7 @@
 import { TecService } from './../Services/tec.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Tec } from '../Models/tec';
+import { FeauturedTec } from '../Models/feautured-tec';
 
 @Component({
   selector: 'app-select-tec',
@@ -9,13 +10,16 @@ import { Tec } from '../Models/tec';
 })
 export class SelectTecComponent implements OnInit {
 
-  ptec: Tec[] = [];
+  ptec: FeauturedTec[] = [];
   @Output('onSelectTec') selectTec = new EventEmitter<Tec>();
 
   constructor(private tecService: TecService) { }
 
   ngOnInit() {
-    this.ptec = this.tecService.getTechById(3);
+    this.tecService.getMyTecnologies(5)
+      .subscribe(res => {
+        this.ptec = res['data'];
+      });
   }
 
   selectedTec(selected: Tec) {

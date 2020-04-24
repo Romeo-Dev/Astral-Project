@@ -12,12 +12,15 @@ import { ProfileService } from '../Services/profile.service';
 export class PageExpComponent implements OnInit {
 
   profile: Profile;
-  exp: Exp[];
-  constructor(private serviceExp: ExpService, private serviceProfile: ProfileService) { }
+  constructor(private serviceProfile: ProfileService) { }
 
   ngOnInit() {
-    this.profile = this.serviceProfile.selectProfile(3);
-    this.exp = this.serviceExp.getExp(this.profile);
+    this.loadExp();
   }
 
+  loadExp(id: number = 5){
+    this.serviceProfile.retriveMyExp(id).subscribe(
+      res => this.profile = res['data']
+    );
+  }
 }

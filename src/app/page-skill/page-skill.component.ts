@@ -12,17 +12,18 @@ import { AbilityService } from '../Services/ability.service';
 export class PageSkillComponent implements OnInit {
 
   profile: Profile;
-  abilities: Ability[] = [];
 
-  constructor(private svprofile: ProfileService, private serviceAbility: AbilityService) { }
+  constructor(private svprofile: ProfileService) { }
 
   ngOnInit() {
-    this.profile = this.svprofile.selectProfile(3);
-    this.abilities = this.showOverview(this.profile);
+    this.loadSkills(2);
   }
 
-  showOverview(profile: Profile): Ability[]{
-    return this.serviceAbility.takeYourAbilities(profile);
+
+  loadSkills(id: number = 5){
+    this.svprofile.showMyAbilities(id).subscribe(
+      res => this.profile = res['data']
+    );
   }
 
 }

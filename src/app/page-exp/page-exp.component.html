@@ -14,7 +14,7 @@
             <h2 class="text-center text-secondary">Working Experience Overview</h2>
         </div>
     </div>
-    <div class="row mt-lg-4" *ngFor="let morexp of exp">
+    <div class="row mt-lg-4" *ngFor="let morexp of profile.exp">
         <div class="col">
             <div class="card">
                 <h5 class="card-header bg-inverse">
@@ -27,8 +27,8 @@
                 <div class="card-footer bg-inverse">
                     <h4 class="text-center text-light">Mansioni principali svolte</h4>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item edu text-light" *ngFor="let man of morexp.mansioni">{{man.mansione}}: <span class="text-gradient">
-                                {{man.short_desc}}</span></li>
+                        <li class="list-group-item edu text-light" *ngFor="let man of morexp.mansions">{{man.mansione}}: <span class="text-gradient">
+                                {{man.sh_desc}}</span></li>
                     </ul>
                 </div>
             </div>

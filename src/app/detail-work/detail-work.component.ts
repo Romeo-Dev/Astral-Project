@@ -18,7 +18,10 @@ export class DetailWorkComponent implements OnInit {
     this.route.params.subscribe(
       (params) => {
         // Cast doveroso con la + davanti il parametro se no per default prende stringa
-        this.project = this.svproject.findProject(+params.id);
+        this.svproject.detailProject(+params.id).subscribe(res => {
+          console.log(res);
+            this.project = res['data'];
+        });
       }
     );
   }

@@ -1,3 +1,5 @@
+import { Exp } from './exp';
+import { Edu } from './edu';
 import { Ability } from './ability';
 
 export class Profile {
@@ -10,6 +12,9 @@ export class Profile {
     indirizzo: string;
     tel: string;
     professione: string;
+    ability?: Ability[];
+    edu?: Edu[];
+    exp?: Exp[];
     git?: string;
     skype?: string;
     facebook?: string;
