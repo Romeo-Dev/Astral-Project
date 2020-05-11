@@ -12,22 +12,45 @@
                         <img src="assets/images/user.svg" class="card-img-top text-center p-lg-5" alt="Astral Logo" style="height: 12rem;">
                     </div>
                 </header>
-                <form action="#" method="post">
+                <form action="#" method="post" [formGroup]= "loginForm">
                         <div class="form-group">
-                            <label for="formGroupExampleInput"><i class="fas fa-id-badge mr-sm-2 text-inverse"></i> Nome & Cognome:</label>
-                            <div class="row mt-sm-3 mb-sm-3">
-                                <input type="text" class="form-control col m-lg-2" id="formGroupExampleInput" placeholder="Enter your name...">
-                                <input type="text" class="form-control col m-lg-2" id="formGroupExampleInput" placeholder="Enter your last name...">
+                            <div class="alert alert-warning" role="alert" *ngIf="wrn_alert">
+                                <h4 class="alert-heading"><i class="fas fa-radiation-alt mr-3"></i>Attenzione!! <small (click)="warning()" class="float-right text-inverse"><i class="fas fa-times-circle" style="cursor: pointer;"></i></small></h4>
+                                <hr>
+                                <p class="mb-0">Selezionare un profilo tramite la seguente form per caricare il suo curriculum vitae e scoprire le sue abilità, istruzione e posizione relativa.</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="formGroupExampleInput"><i class="fas fa-envelope-square mr-sm-2 text-inverse"></i> Email:</label>
-                            <input type="email" class="form-control m-lg-2" id="formGroupExampleInput" placeholder="Enter your email...">
+                            <div class="alert alert-success" role="alert" *ngIf="succ_alert">
+                                <h4 class="alert-heading"><i class="far fa-check-circle text-light mr-3"></i>Profilo caricato con successo!! <small (click)="success()" class="float-right text-light"><i class="fas fa-times-circle" style="cursor: pointer;"></i></small></h4>
+                                <hr>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Nome: <strong class="text-success text-center">{{profile.nome}}</strong></li>
+                                    <li class="list-group-item">Cognome: <strong class="text-success text-center">{{profile.cognome}}</strong></li>
+                                    <li class="list-group-item">E-Mail: <strong class="text-success text-center">{{profile.email}}</strong></li>
+                                    <li class="list-group-item">Professione: <strong class="text-success text-center">{{profile.professione}}</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-2 col-6-small">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text text-inverse" for="inputGroupSelect01">Select Profile</label>
+                            </div>
+                        </div>
+                        <div class="col-10 col-6-small">
+                            <select class="custom-select" id="inputGroupSelect01" formControlName="profile_id">
+                                <option *ngFor="let p of profiles" value="{{p.id}}">{{p.nome}} {{p.cognome}}</option>
+                            </select>
+                            <div class="alert alert-danger" role="alert"
+                                *ngIf="this.loginForm.get('profile_id').touched && this.loginForm.get('profile_id').hasError('required')">
+                                <i class="fas fa-exclamation-circle text-danger"></i> <small class="ml-2">Selezionare un Profilo prima di
+                                    continuare</small>
+                            </div>
                         </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn bg-gradient btn-lg btn-block">Login</button>
+                <button type="button" (click)="onSubmit()"  [disabled]="!loginForm.valid"  class="btn bg-gradient btn-lg btn-block" data-dismiss="modal">Load Profile</button>
                 <button type="button" class="btn bg-inverse btn-lg btn-block" data-dismiss="modal">Close</button>
             </div>
         </div>

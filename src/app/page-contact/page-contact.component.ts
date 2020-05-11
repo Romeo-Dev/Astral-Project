@@ -13,6 +13,7 @@ export class PageContactComponent implements OnInit {
 
   profiles: Profile[] = [];
   message: Message;
+  alert = false;
 
   messageForm = this.fb.group({
     name: ['', [Validators.required, Validators.maxLength(20)]],
@@ -37,7 +38,15 @@ export class PageContactComponent implements OnInit {
 
   onSubmit() {
     this.message = this.messageForm.value;
-    console.log(this.message);
+    this.serviceProfile.sendMessage(this.message).subscribe(
+      message => console.log(message)
+      );
+    this.alert = true;
+    this.messageForm.reset();
+  }
+
+  close(){
+    this.alert = false;
   }
 
 }

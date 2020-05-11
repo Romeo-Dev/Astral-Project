@@ -6,6 +6,7 @@ import { Observable, throwError } from 'rxjs';
 import {  HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map, mapTo } from 'rxjs/operators';
 import { Project } from '../Models/project';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ import { Project } from '../Models/project';
 export class ProfileService {
 
   url = 'http://127.0.0.1:8000/api/profiles/';
+  mesurl = 'http://127.0.0.1:8000/api/messages/';
 
   constructor(private http: HttpClient) { }
 
@@ -87,5 +89,9 @@ export class ProfileService {
 
   getAllProfiles(): Observable<Profile[]> {
     return this.http.get<Profile[]>(this.url);
+  }
+
+  sendMessage($message: any): Observable<Message> {
+    return this.http.post<Message>(this.mesurl, $message);
   }
 }
